@@ -514,15 +514,19 @@ Initializers的工作原理和使用方法将一个编写好的 Initializer，�
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2018/11/10/kubernetes是如何创建api对象的/" >
+        <a class="abstract-title" href = "/2018/11/10/在kubernetes中如何添加CRD(Custom Resource Definition)/" >
             
-                <span>kubernetes是如何创建api对象的</span>
+                <span>在kubernetes中如何添加CRD(Custom Resource Definition)(1)</span>
         </a>
         <div class="abstract-content">
-            一个yaml文件提交之后 , 会交到apiserver那里 , apiserver的handler会更加根据资源定义来找到要创建的类型定义 
-在创建这个类型的对象的过程中 , APIServer会进行一个Convert工作, 即把用户提交的一个yaml文件转换成一个Super Version的对象 , 它是该API资源类型所有版本的字段全集 , 接下来APIServer会进行Admission()和Validation()操作 
-Admission操作包括Admission Controller和Initializer
-Validation操作是要验证这个API字段是否合法 , 如果在A...
+            CustomResourceDefinition（CRD）是 v1.7 + 新增的无需改变代码就可以扩展 Kubernetes API 的机制，用来管理自定义对象。它实际上是 ThirdPartyResources（TPR） 的升级版本，而 TPR 已经在 v1.8 中删除
+一些使用场景：
+
+提供/管理外部数据存储/数据库(例如 CloudSQL/RDS 实例)
+对k8s基础资源进行更高层次的抽象(比如定义一个etcd集群)
+
+其实crd在很多k8s周边开源项目中有使用，比如ingress-controller和众多的operator。
+官方的参考文档地址:https://kuberne...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -546,19 +550,15 @@ Validation操作是要验证这个API字段是否合法 , 如果在A...
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2018/11/10/在kubernetes中如何添加CRD(Custom Resource Definition)/" >
+        <a class="abstract-title" href = "/2018/11/10/kubernetes是如何创建api对象的/" >
             
-                <span>在kubernetes中如何添加CRD(Custom Resource Definition)(1)</span>
+                <span>kubernetes是如何创建api对象的</span>
         </a>
         <div class="abstract-content">
-            CustomResourceDefinition（CRD）是 v1.7 + 新增的无需改变代码就可以扩展 Kubernetes API 的机制，用来管理自定义对象。它实际上是 ThirdPartyResources（TPR） 的升级版本，而 TPR 已经在 v1.8 中删除
-一些使用场景：
-
-提供/管理外部数据存储/数据库(例如 CloudSQL/RDS 实例)
-对k8s基础资源进行更高层次的抽象(比如定义一个etcd集群)
-
-其实crd在很多k8s周边开源项目中有使用，比如ingress-controller和众多的operator。
-官方的参考文档地址:https://kuberne...
+            一个yaml文件提交之后 , 会交到apiserver那里 , apiserver的handler会更加根据资源定义来找到要创建的类型定义 
+在创建这个类型的对象的过程中 , APIServer会进行一个Convert工作, 即把用户提交的一个yaml文件转换成一个Super Version的对象 , 它是该API资源类型所有版本的字段全集 , 接下来APIServer会进行Admission()和Validation()操作 
+Admission操作包括Admission Controller和Initializer
+Validation操作是要验证这个API字段是否合法 , 如果在A...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -3215,28 +3215,6 @@ vim prometheus.yaml
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     <div class="total-and-search">
         <div class="total-archive">
         Total : 168
@@ -3362,12 +3340,12 @@ vim prometheus.yaml
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">03/01</span><a class="archive-post-title" href= "/2019/03/01/kubernetes deployment在滚动升级的时候如何控制新旧pod比例/" >kubernetes deployment在滚动升级的时候如何控制新旧pod比例</a>
+            <span class="archive-post-date">03/01</span><a class="archive-post-title" href= "/2019/03/01/kubernetes deployment如何控制每次更新操作只触发一个ReolicaSet以及设置保留历史个数版本/" >kubernetes deployment如何控制每次更新操作只触发一个ReolicaSet以及设置保留历史个数版本</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">03/01</span><a class="archive-post-title" href= "/2019/03/01/kubernetes deployment如何控制每次更新操作只触发一个ReolicaSet以及设置保留历史个数版本/" >kubernetes deployment如何控制每次更新操作只触发一个ReolicaSet以及设置保留历史个数版本</a>
+            <span class="archive-post-date">03/01</span><a class="archive-post-title" href= "/2019/03/01/kubernetes deployment在滚动升级的时候如何控制新旧pod比例/" >kubernetes deployment在滚动升级的时候如何控制新旧pod比例</a>
         </li>
     
     
@@ -3416,7 +3394,7 @@ vim prometheus.yaml
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/03</span><a class="archive-post-title" href= "/2018/11/03/kubernetes中的Projected Volume是什么/" >kubernetes中的Projected Volume是什么</a>
+            <span class="archive-post-date">11/03</span><a class="archive-post-title" href= "/2018/11/03/kubernetes中api-server的地址改成公网ip和负载均衡/" >kubernetes中api-server的地址改成公网ip和负载均衡</a>
         </li>
     
     
@@ -3511,20 +3489,6 @@ vim prometheus.yaml
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes StatefulSet/" >kubernetes StatefulSet</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes HPA/" >kubernetes HPA</a>
         </li>
     
@@ -3553,7 +3517,7 @@ vim prometheus.yaml
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes service实现方法和类型/" >kubernetes service实现方法和类型</a>
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes StatefulSet/" >kubernetes StatefulSet</a>
         </li>
     
     
@@ -3576,12 +3540,40 @@ vim prometheus.yaml
     
         </ul>
     
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes service实现方法和类型/" >kubernetes service实现方法和类型</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes中docker连到私有仓库认证问题/" >kubernetes中docker连到私有仓库认证问题</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
     <div class="archive-year"> 2018 </div>
     <ul class="year-list">
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/03</span><a class="archive-post-title" href= "/2018/11/03/kubernetes中api-server的地址改成公网ip和负载均衡/" >kubernetes中api-server的地址改成公网ip和负载均衡</a>
+            <span class="archive-post-date">11/03</span><a class="archive-post-title" href= "/2018/11/03/kubernetes中的Projected Volume是什么/" >kubernetes中的Projected Volume是什么</a>
         </li>
     
     
@@ -3621,41 +3613,18 @@ vim prometheus.yaml
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">10/10</span><a class="archive-post-title" href= "/2018/10/10/Nginx中HTTP请求的11个阶段之第三阶段----find_config  (location指令)/" >Nginx中HTTP请求的11个阶段之第三阶段----find_config  (location指令)</a>
+            <span class="archive-post-date">10/10</span><a class="archive-post-title" href= "/2018/10/10/Nginx中HTTP请求的11个阶段之第二阶段和第四阶段---rewrite阶段/" >Nginx中HTTP请求的11个阶段之第二阶段和第四阶段---rewrite阶段</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">10/10</span><a class="archive-post-title" href= "/2018/10/10/Nginx中HTTP请求的11个阶段之第二阶段和第四阶段---rewrite阶段/" >Nginx中HTTP请求的11个阶段之第二阶段和第四阶段---rewrite阶段</a>
+            <span class="archive-post-date">10/10</span><a class="archive-post-title" href= "/2018/10/10/Nginx中HTTP请求的11个阶段之第三阶段----find_config  (location指令)/" >Nginx中HTTP请求的11个阶段之第三阶段----find_config  (location指令)</a>
         </li>
     
     
         <li class="archive-post-item">
             <span class="archive-post-date">10/10</span><a class="archive-post-title" href= "/2018/10/10/Nginx中HTTP请求的11个阶段之第六阶段---PREACCESS (limit_req ,limit_conn模块)/" >Nginx中HTTP请求的11个阶段之第六阶段---PREACCESS (limit_req ,limit_conn模块)</a>
         </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes中docker连到私有仓库认证问题/" >kubernetes中docker连到私有仓库认证问题</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> 2018 </div>
-    <ul class="year-list">
     
     
         <li class="archive-post-item">
@@ -3825,20 +3794,6 @@ vim prometheus.yaml
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes中的认证---default-token/" >kubernetes中的认证---default-token</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes中的认证流程和资源请求/" >kubernetes中的认证流程和资源请求</a>
         </li>
     
@@ -3867,20 +3822,6 @@ vim prometheus.yaml
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes中资源yaml模板创建/" >kubernetes中资源yaml模板创建</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes中网络插件地址/" >kubernetes中网络插件地址</a>
         </li>
     
@@ -3895,7 +3836,7 @@ vim prometheus.yaml
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes中进入pod运行命令/" >kubernetes进入pod方法</a>
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes中资源yaml模板创建/" >kubernetes中资源yaml模板创建</a>
         </li>
     
     
@@ -3923,7 +3864,7 @@ vim prometheus.yaml
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes中部署一个服务用的简单模板/" >kubernetes中部署一个服务用的简单模板</a>
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes中进入pod运行命令/" >kubernetes进入pod方法</a>
         </li>
     
     
@@ -3938,6 +3879,157 @@ vim prometheus.yaml
     
         <li class="archive-post-item">
             <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes中部署prometheus/" >kubernetes中部署prometheus</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes中部署一个服务用的简单模板/" >kubernetes中部署一个服务用的简单模板</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2019 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/10</span><a class="archive-post-title" href= "/2019/09/10/kubernetes开发教程(4)自动代码生成/" >kubernetes开发教程(4)--自动代码生成</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/24</span><a class="archive-post-title" href= "/2019/06/24/kubernetes持久化存储卷存储卷快照Snapshot/" >kubernetes持久化存储卷:存储卷快照Snapshot详解</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/10</span><a class="archive-post-title" href= "/2019/01/10/kubernetes的本地持久化存储--Local Persistent Volume解析/" >kubernetes的本地持久化存储--Local Persistent Volume解析</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2018 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/21</span><a class="archive-post-title" href= "/2018/12/21/kubernetes容器日志收集方案/" >kubernetes容器日志收集方案</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/16</span><a class="archive-post-title" href= "/2018/11/16/kubernetes中默认为pod创建的volume目录是在宿主机的什么路径/" >kubernetes中默认为pod创建的volume目录是在宿主机的什么路径</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes中的认证---default-token/" >kubernetes中的认证---default-token</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2019 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/02</span><a class="archive-post-title" href= "/2019/01/02/kubernetes挂载卷的基本过程/" >kubernetes挂载卷的基本过程</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2018 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/26</span><a class="archive-post-title" href= "/2018/11/26/kubernetes中默认调度器是如何调度一个pod的到节点上的/" >kubernetes中默认调度器的调度流程是怎么进行的</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/07</span><a class="archive-post-title" href= "/2018/11/07/prometheus报警--------通过slack发送报警内容/" >prometheus报警--------通过slack发送报警内容</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/05</span><a class="archive-post-title" href= "/2018/01/05/kubernetes初探/" >kubernetes初探</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes存储卷/" >kubernetes存储卷</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2018 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/10</span><a class="archive-post-title" href= "/2018/11/10/kubernetes动态准入控制Initializers是什么/" >kubernetes动态准入控制Initializers是什么</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes如何创建被认证的用户/" >kubernetes如何创建被认证的用户</a>
         </li>
     
     
@@ -3970,37 +4062,7 @@ vim prometheus.yaml
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/10</span><a class="archive-post-title" href= "/2019/09/10/kubernetes开发教程(4)自动代码生成/" >kubernetes开发教程(4)--自动代码生成</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">09/08</span><a class="archive-post-title" href= "/2019/09/08/kuberntes开发教程系列(3)了解和编写Custom Resources/" >kuberntes开发教程系列(3)--了解和编写Custom Resources</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">09/07</span><a class="archive-post-title" href= "/2019/09/07/kuberntes开发教程系列(2)  了解client-go是什么/" >kuberntes开发教程系列(2):了解client-go是什么</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">09/06</span><a class="archive-post-title" href= "/2019/09/06/kuberntes开发教程系列(一)认识kuberntes API/" >kuberntes开发教程系列(1):认识kuberntes API</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/24</span><a class="archive-post-title" href= "/2019/06/24/kubernetes持久化存储卷存储卷快照Snapshot/" >kubernetes持久化存储卷:存储卷快照Snapshot详解</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">01/10</span><a class="archive-post-title" href= "/2019/01/10/kubernetes的本地持久化存储--Local Persistent Volume解析/" >kubernetes的本地持久化存储--Local Persistent Volume解析</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">01/02</span><a class="archive-post-title" href= "/2019/01/02/kubernetes挂载卷的基本过程/" >kubernetes挂载卷的基本过程</a>
         </li>
     
     
@@ -4014,80 +4076,7 @@ vim prometheus.yaml
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/21</span><a class="archive-post-title" href= "/2018/12/21/kubernetes容器日志收集方案/" >kubernetes容器日志收集方案</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">11/27</span><a class="archive-post-title" href= "/2018/11/27/kubernetes怎么修改与设置触发资源回收策略的默认值/" >kubernetes怎么修改与设置触发资源回收策略的默认值</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">11/26</span><a class="archive-post-title" href= "/2018/11/26/kubernetes中默认调度器是如何调度一个pod的到节点上的/" >kubernetes中默认调度器的调度流程是怎么进行的</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">11/16</span><a class="archive-post-title" href= "/2018/11/16/kubernetes中默认为pod创建的volume目录是在宿主机的什么路径/" >kubernetes中默认为pod创建的volume目录是在宿主机的什么路径</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">11/10</span><a class="archive-post-title" href= "/2018/11/10/kubernetes动态准入控制Initializers是什么/" >kubernetes动态准入控制Initializers是什么</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">11/10</span><a class="archive-post-title" href= "/2018/11/10/kubernetes是如何创建api对象的/" >kubernetes是如何创建api对象的</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">10/15</span><a class="archive-post-title" href= "/2018/10/15/nginx中的负载均衡算法/" >nginx中的负载均衡算法</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">10/15</span><a class="archive-post-title" href= "/2018/10/15/nginx使用open_file_cache提升系统性能/" >nginx使用open_file_cache提升系统性能</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">10/10</span><a class="archive-post-title" href= "/2018/10/10/nginx中的http反向代理流程及proxy模块/" >nginx中的http反向代理流程及proxy模块</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">01/05</span><a class="archive-post-title" href= "/2018/01/05/kubernetes初探/" >kubernetes初探</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes如何创建被认证的用户/" >kubernetes如何创建被认证的用户</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes存储卷/" >kubernetes存储卷</a>
         </li>
     
     
@@ -4115,63 +4104,7 @@ vim prometheus.yaml
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes资源清单/" >kubernetes资源清单</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes资源定义清单中的apiVersion说明/" >kubernetes资源定义清单中的apiVersion说明</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes访问集群节点的资源/" >kubernetes访问集群节点的资源</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes资源指标metrics-server/" >kubernetes资源指标metrics-server</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes资源限制/" >kubernetes资源限制</a>
         </li>
     
     
@@ -4209,7 +4142,49 @@ vim prometheus.yaml
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes高级调度方式/" >kubernetes高级调度方式</a>
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes资源定义清单中的apiVersion说明/" >kubernetes资源定义清单中的apiVersion说明</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes资源指标metrics-server/" >kubernetes资源指标metrics-server</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes资源清单/" >kubernetes资源清单</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes资源限制/" >kubernetes资源限制</a>
         </li>
     
     
@@ -4224,6 +4199,39 @@ vim prometheus.yaml
     
         <li class="archive-post-item">
             <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes集群的外部地址和内部地址/" >kubernetes集群的外部地址和内部地址</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes高级调度方式/" >kubernetes高级调度方式</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2019 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/07</span><a class="archive-post-title" href= "/2019/09/07/kuberntes开发教程系列(2)  了解client-go是什么/" >kuberntes开发教程系列(2):了解client-go是什么</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/06</span><a class="archive-post-title" href= "/2019/09/06/kuberntes开发教程系列(一)认识kuberntes API/" >kuberntes开发教程系列(1):认识kuberntes API</a>
         </li>
     
     
@@ -4247,7 +4255,22 @@ vim prometheus.yaml
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">10/15</span><a class="archive-post-title" href= "/2018/10/15/nginx中的负载均衡算法/" >nginx中的负载均衡算法</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">10/15</span><a class="archive-post-title" href= "/2018/10/15/nginx中缓存用法和优化/" >nginx中缓存用法和优化</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/15</span><a class="archive-post-title" href= "/2018/10/15/nginx使用open_file_cache提升系统性能/" >nginx使用open_file_cache提升系统性能</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/10</span><a class="archive-post-title" href= "/2018/10/10/nginx中的http反向代理流程及proxy模块/" >nginx中的http反向代理流程及proxy模块</a>
         </li>
     
     
@@ -4475,7 +4498,7 @@ vim prometheus.yaml
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/07</span><a class="archive-post-title" href= "/2018/11/07/prometheus报警--------通过slack发送报警内容/" >prometheus报警--------通过slack发送报警内容</a>
+            <span class="archive-post-date">11/10</span><a class="archive-post-title" href= "/2018/11/10/kubernetes是如何创建api对象的/" >kubernetes是如何创建api对象的</a>
         </li>
     
     
@@ -4577,13 +4600,13 @@ vim prometheus.yaml
     
         <span class="sidebar-tag-name" data-tags="RBAC"><span class="iconfont-archer">&#xe606;</span>RBAC</span>
     
-        <span class="sidebar-tag-name" data-tags="kbuernetes statefulset"><span class="iconfont-archer">&#xe606;</span>kbuernetes statefulset</span>
-    
         <span class="sidebar-tag-name" data-tags="HPA"><span class="iconfont-archer">&#xe606;</span>HPA</span>
     
-        <span class="sidebar-tag-name" data-tags="kubernetes service"><span class="iconfont-archer">&#xe606;</span>kubernetes service</span>
+        <span class="sidebar-tag-name" data-tags="kbuernetes statefulset"><span class="iconfont-archer">&#xe606;</span>kbuernetes statefulset</span>
     
         <span class="sidebar-tag-name" data-tags="ingress"><span class="iconfont-archer">&#xe606;</span>ingress</span>
+    
+        <span class="sidebar-tag-name" data-tags="kubernetes service"><span class="iconfont-archer">&#xe606;</span>kubernetes service</span>
     
         <span class="sidebar-tag-name" data-tags="prometheus"><span class="iconfont-archer">&#xe606;</span>prometheus</span>
     
@@ -4597,15 +4620,15 @@ vim prometheus.yaml
     
         <span class="sidebar-tag-name" data-tags="ingress-nginx"><span class="iconfont-archer">&#xe606;</span>ingress-nginx</span>
     
-        <span class="sidebar-tag-name" data-tags="git"><span class="iconfont-archer">&#xe606;</span>git</span>
+        <span class="sidebar-tag-name" data-tags="Linux"><span class="iconfont-archer">&#xe606;</span>Linux</span>
     
         <span class="sidebar-tag-name" data-tags="kubernetes安装"><span class="iconfont-archer">&#xe606;</span>kubernetes安装</span>
+    
+        <span class="sidebar-tag-name" data-tags="git"><span class="iconfont-archer">&#xe606;</span>git</span>
     
         <span class="sidebar-tag-name" data-tags="travis"><span class="iconfont-archer">&#xe606;</span>travis</span>
     
         <span class="sidebar-tag-name" data-tags="gcr.io镜像"><span class="iconfont-archer">&#xe606;</span>gcr.io镜像</span>
-    
-        <span class="sidebar-tag-name" data-tags="Linux"><span class="iconfont-archer">&#xe606;</span>Linux</span>
     
         <span class="sidebar-tag-name" data-tags="kubernetes网络策略"><span class="iconfont-archer">&#xe606;</span>kubernetes网络策略</span>
     

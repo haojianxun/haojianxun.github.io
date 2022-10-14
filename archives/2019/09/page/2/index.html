@@ -346,16 +346,15 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2019/09/02/kubernetes资源清单/" >
+        <a class="abstract-title" href = "/2019/09/02/kubernetes访问集群节点的资源/" >
             
-                <span>kubernetes资源清单</span>
+                <span>kubernetes访问集群节点的资源</span>
         </a>
         <div class="abstract-content">
-            查看帮助123kubectl explain pods   //如何定义pod的帮助kubectl explain pods.metadata  //查看其中matadata字段的定义方法kubectl explain pods.spec.containers  //查看spec下的containers字段的定义方法
-如何查看一个已经运行的pod的资源清单
-先查看pod 
+            可以开一个本地代理
+1kubectl proxy --port=8080
+之后用curl即可访问
 
-12345678kubectl get podsNAME                            READY     STATUS      RESTARTS   AGEnginx-deploy-59c...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -366,9 +365,7 @@
             
             <div class= abstract-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "kubernetes">kubernetes</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "kubernetes资源">kubernetes资源</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "tips">tips</a>
     
 </div>
             
@@ -412,38 +409,6 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2019/09/02/kubernetes访问集群节点的资源/" >
-            
-                <span>kubernetes访问集群节点的资源</span>
-        </a>
-        <div class="abstract-content">
-            可以开一个本地代理
-1kubectl proxy --port=8080
-之后用curl即可访问
-
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/09/02</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "tips">tips</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
         <a class="abstract-title" href = "/2019/09/02/kubernetes资源指标metrics-server/" >
             
                 <span>kubernetes资源指标metrics-server</span>
@@ -456,6 +421,41 @@
 
 监控流水线: 用于从系统收集各种指标并提供终端用户 存储系统和HPA 它们包涵核心指标和许多非核心指标 非核心指标不能被k8s所解析
 以后用户访问api群组 , 是通过kube-aggegator来访问 , 这个kube-aggegator同时聚合了由kubernetes自己提供的api群组和metri...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/09/02</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "kubernetes">kubernetes</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "kubernetes资源">kubernetes资源</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/09/02/kubernetes资源清单/" >
+            
+                <span>kubernetes资源清单</span>
+        </a>
+        <div class="abstract-content">
+            查看帮助123kubectl explain pods   //如何定义pod的帮助kubectl explain pods.metadata  //查看其中matadata字段的定义方法kubectl explain pods.spec.containers  //查看spec下的containers字段的定义方法
+如何查看一个已经运行的pod的资源清单
+先查看pod 
+
+12345678kubectl get podsNAME                            READY     STATUS      RESTARTS   AGEnginx-deploy-59c...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -600,43 +600,6 @@ tls  (放证书和私钥)
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2019/09/02/kubernetes中的认证---default-token/" >
-            
-                <span>kubernetes中的认证---default-token</span>
-        </a>
-        <div class="abstract-content">
-            在一个pod中 , pod可以通过一个token来认证 pod中各个容器
-先查看pod
-1kubectl get pod
-我们随便挑一个pod来看
-1kubectl describe pod myapp-deploy-67f6f6b4dc-zsr5j
-可以看到 , 我们在创建的时候并没有指定存储卷 , 但是他自己就有了一个
-12345Volumes:  default-token-vwdjg:    Type:        Secret (a volume populated by a Secret)    SecretName:  default-token-vwdjg    Opt...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/09/02</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "kubernetes">kubernetes</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "tips">tips</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
         <a class="abstract-title" href = "/2019/09/02/kubernetes中的认证流程和资源请求/" >
             
                 <span>kubernetes中的认证流程和资源请求</span>
@@ -695,6 +658,38 @@ serviceaccount:  pod中的容器要访问api的时候用的
             <!-- tags  -->
             
             <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "tips">tips</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/09/02/kubernetes中网络插件地址/" >
+            
+                <span>kubernetes中网络插件地址</span>
+        </a>
+        <div class="abstract-content">
+            配置文件在/etc/cni/net.d/目录下
+
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/09/02</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "kubernetes">kubernetes</a>
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "tips">tips</a>
     
@@ -804,28 +799,6 @@ serviceaccount:  pod中的容器要访问api的时候用的
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     
@@ -3281,12 +3254,12 @@ serviceaccount:  pod中的容器要访问api的时候用的
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">03/01</span><a class="archive-post-title" href= "/2019/03/01/kubernetes deployment在滚动升级的时候如何控制新旧pod比例/" >kubernetes deployment在滚动升级的时候如何控制新旧pod比例</a>
+            <span class="archive-post-date">03/01</span><a class="archive-post-title" href= "/2019/03/01/kubernetes deployment如何控制每次更新操作只触发一个ReolicaSet以及设置保留历史个数版本/" >kubernetes deployment如何控制每次更新操作只触发一个ReolicaSet以及设置保留历史个数版本</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">03/01</span><a class="archive-post-title" href= "/2019/03/01/kubernetes deployment如何控制每次更新操作只触发一个ReolicaSet以及设置保留历史个数版本/" >kubernetes deployment如何控制每次更新操作只触发一个ReolicaSet以及设置保留历史个数版本</a>
+            <span class="archive-post-date">03/01</span><a class="archive-post-title" href= "/2019/03/01/kubernetes deployment在滚动升级的时候如何控制新旧pod比例/" >kubernetes deployment在滚动升级的时候如何控制新旧pod比例</a>
         </li>
     
     
@@ -3335,7 +3308,7 @@ serviceaccount:  pod中的容器要访问api的时候用的
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/03</span><a class="archive-post-title" href= "/2018/11/03/kubernetes中的Projected Volume是什么/" >kubernetes中的Projected Volume是什么</a>
+            <span class="archive-post-date">11/03</span><a class="archive-post-title" href= "/2018/11/03/kubernetes中api-server的地址改成公网ip和负载均衡/" >kubernetes中api-server的地址改成公网ip和负载均衡</a>
         </li>
     
     
@@ -3430,20 +3403,6 @@ serviceaccount:  pod中的容器要访问api的时候用的
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes StatefulSet/" >kubernetes StatefulSet</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes HPA/" >kubernetes HPA</a>
         </li>
     
@@ -3472,7 +3431,7 @@ serviceaccount:  pod中的容器要访问api的时候用的
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes service实现方法和类型/" >kubernetes service实现方法和类型</a>
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes StatefulSet/" >kubernetes StatefulSet</a>
         </li>
     
     
@@ -3495,12 +3454,40 @@ serviceaccount:  pod中的容器要访问api的时候用的
     
         </ul>
     
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes service实现方法和类型/" >kubernetes service实现方法和类型</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes中docker连到私有仓库认证问题/" >kubernetes中docker连到私有仓库认证问题</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
     <div class="archive-year"> 2018 </div>
     <ul class="year-list">
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/03</span><a class="archive-post-title" href= "/2018/11/03/kubernetes中api-server的地址改成公网ip和负载均衡/" >kubernetes中api-server的地址改成公网ip和负载均衡</a>
+            <span class="archive-post-date">11/03</span><a class="archive-post-title" href= "/2018/11/03/kubernetes中的Projected Volume是什么/" >kubernetes中的Projected Volume是什么</a>
         </li>
     
     
@@ -3540,41 +3527,18 @@ serviceaccount:  pod中的容器要访问api的时候用的
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">10/10</span><a class="archive-post-title" href= "/2018/10/10/Nginx中HTTP请求的11个阶段之第三阶段----find_config  (location指令)/" >Nginx中HTTP请求的11个阶段之第三阶段----find_config  (location指令)</a>
+            <span class="archive-post-date">10/10</span><a class="archive-post-title" href= "/2018/10/10/Nginx中HTTP请求的11个阶段之第二阶段和第四阶段---rewrite阶段/" >Nginx中HTTP请求的11个阶段之第二阶段和第四阶段---rewrite阶段</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">10/10</span><a class="archive-post-title" href= "/2018/10/10/Nginx中HTTP请求的11个阶段之第二阶段和第四阶段---rewrite阶段/" >Nginx中HTTP请求的11个阶段之第二阶段和第四阶段---rewrite阶段</a>
+            <span class="archive-post-date">10/10</span><a class="archive-post-title" href= "/2018/10/10/Nginx中HTTP请求的11个阶段之第三阶段----find_config  (location指令)/" >Nginx中HTTP请求的11个阶段之第三阶段----find_config  (location指令)</a>
         </li>
     
     
         <li class="archive-post-item">
             <span class="archive-post-date">10/10</span><a class="archive-post-title" href= "/2018/10/10/Nginx中HTTP请求的11个阶段之第六阶段---PREACCESS (limit_req ,limit_conn模块)/" >Nginx中HTTP请求的11个阶段之第六阶段---PREACCESS (limit_req ,limit_conn模块)</a>
         </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes中docker连到私有仓库认证问题/" >kubernetes中docker连到私有仓库认证问题</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> 2018 </div>
-    <ul class="year-list">
     
     
         <li class="archive-post-item">
@@ -3744,20 +3708,6 @@ serviceaccount:  pod中的容器要访问api的时候用的
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes中的认证---default-token/" >kubernetes中的认证---default-token</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes中的认证流程和资源请求/" >kubernetes中的认证流程和资源请求</a>
         </li>
     
@@ -3786,20 +3736,6 @@ serviceaccount:  pod中的容器要访问api的时候用的
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes中资源yaml模板创建/" >kubernetes中资源yaml模板创建</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes中网络插件地址/" >kubernetes中网络插件地址</a>
         </li>
     
@@ -3814,7 +3750,7 @@ serviceaccount:  pod中的容器要访问api的时候用的
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes中进入pod运行命令/" >kubernetes进入pod方法</a>
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes中资源yaml模板创建/" >kubernetes中资源yaml模板创建</a>
         </li>
     
     
@@ -3842,7 +3778,7 @@ serviceaccount:  pod中的容器要访问api的时候用的
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes中部署一个服务用的简单模板/" >kubernetes中部署一个服务用的简单模板</a>
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes中进入pod运行命令/" >kubernetes进入pod方法</a>
         </li>
     
     
@@ -3857,6 +3793,157 @@ serviceaccount:  pod中的容器要访问api的时候用的
     
         <li class="archive-post-item">
             <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes中部署prometheus/" >kubernetes中部署prometheus</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes中部署一个服务用的简单模板/" >kubernetes中部署一个服务用的简单模板</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2019 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/10</span><a class="archive-post-title" href= "/2019/09/10/kubernetes开发教程(4)自动代码生成/" >kubernetes开发教程(4)--自动代码生成</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/24</span><a class="archive-post-title" href= "/2019/06/24/kubernetes持久化存储卷存储卷快照Snapshot/" >kubernetes持久化存储卷:存储卷快照Snapshot详解</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/10</span><a class="archive-post-title" href= "/2019/01/10/kubernetes的本地持久化存储--Local Persistent Volume解析/" >kubernetes的本地持久化存储--Local Persistent Volume解析</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2018 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/21</span><a class="archive-post-title" href= "/2018/12/21/kubernetes容器日志收集方案/" >kubernetes容器日志收集方案</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/16</span><a class="archive-post-title" href= "/2018/11/16/kubernetes中默认为pod创建的volume目录是在宿主机的什么路径/" >kubernetes中默认为pod创建的volume目录是在宿主机的什么路径</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes中的认证---default-token/" >kubernetes中的认证---default-token</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2019 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/02</span><a class="archive-post-title" href= "/2019/01/02/kubernetes挂载卷的基本过程/" >kubernetes挂载卷的基本过程</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2018 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/26</span><a class="archive-post-title" href= "/2018/11/26/kubernetes中默认调度器是如何调度一个pod的到节点上的/" >kubernetes中默认调度器的调度流程是怎么进行的</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/07</span><a class="archive-post-title" href= "/2018/11/07/prometheus报警--------通过slack发送报警内容/" >prometheus报警--------通过slack发送报警内容</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/05</span><a class="archive-post-title" href= "/2018/01/05/kubernetes初探/" >kubernetes初探</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes存储卷/" >kubernetes存储卷</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2018 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/10</span><a class="archive-post-title" href= "/2018/11/10/kubernetes动态准入控制Initializers是什么/" >kubernetes动态准入控制Initializers是什么</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes如何创建被认证的用户/" >kubernetes如何创建被认证的用户</a>
         </li>
     
     
@@ -3889,37 +3976,7 @@ serviceaccount:  pod中的容器要访问api的时候用的
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/10</span><a class="archive-post-title" href= "/2019/09/10/kubernetes开发教程(4)自动代码生成/" >kubernetes开发教程(4)--自动代码生成</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">09/08</span><a class="archive-post-title" href= "/2019/09/08/kuberntes开发教程系列(3)了解和编写Custom Resources/" >kuberntes开发教程系列(3)--了解和编写Custom Resources</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">09/07</span><a class="archive-post-title" href= "/2019/09/07/kuberntes开发教程系列(2)  了解client-go是什么/" >kuberntes开发教程系列(2):了解client-go是什么</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">09/06</span><a class="archive-post-title" href= "/2019/09/06/kuberntes开发教程系列(一)认识kuberntes API/" >kuberntes开发教程系列(1):认识kuberntes API</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">06/24</span><a class="archive-post-title" href= "/2019/06/24/kubernetes持久化存储卷存储卷快照Snapshot/" >kubernetes持久化存储卷:存储卷快照Snapshot详解</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">01/10</span><a class="archive-post-title" href= "/2019/01/10/kubernetes的本地持久化存储--Local Persistent Volume解析/" >kubernetes的本地持久化存储--Local Persistent Volume解析</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">01/02</span><a class="archive-post-title" href= "/2019/01/02/kubernetes挂载卷的基本过程/" >kubernetes挂载卷的基本过程</a>
         </li>
     
     
@@ -3933,80 +3990,7 @@ serviceaccount:  pod中的容器要访问api的时候用的
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/21</span><a class="archive-post-title" href= "/2018/12/21/kubernetes容器日志收集方案/" >kubernetes容器日志收集方案</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">11/27</span><a class="archive-post-title" href= "/2018/11/27/kubernetes怎么修改与设置触发资源回收策略的默认值/" >kubernetes怎么修改与设置触发资源回收策略的默认值</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">11/26</span><a class="archive-post-title" href= "/2018/11/26/kubernetes中默认调度器是如何调度一个pod的到节点上的/" >kubernetes中默认调度器的调度流程是怎么进行的</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">11/16</span><a class="archive-post-title" href= "/2018/11/16/kubernetes中默认为pod创建的volume目录是在宿主机的什么路径/" >kubernetes中默认为pod创建的volume目录是在宿主机的什么路径</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">11/10</span><a class="archive-post-title" href= "/2018/11/10/kubernetes动态准入控制Initializers是什么/" >kubernetes动态准入控制Initializers是什么</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">11/10</span><a class="archive-post-title" href= "/2018/11/10/kubernetes是如何创建api对象的/" >kubernetes是如何创建api对象的</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">10/15</span><a class="archive-post-title" href= "/2018/10/15/nginx中的负载均衡算法/" >nginx中的负载均衡算法</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">10/15</span><a class="archive-post-title" href= "/2018/10/15/nginx使用open_file_cache提升系统性能/" >nginx使用open_file_cache提升系统性能</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">10/10</span><a class="archive-post-title" href= "/2018/10/10/nginx中的http反向代理流程及proxy模块/" >nginx中的http反向代理流程及proxy模块</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">01/05</span><a class="archive-post-title" href= "/2018/01/05/kubernetes初探/" >kubernetes初探</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes如何创建被认证的用户/" >kubernetes如何创建被认证的用户</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes存储卷/" >kubernetes存储卷</a>
         </li>
     
     
@@ -4034,63 +4018,7 @@ serviceaccount:  pod中的容器要访问api的时候用的
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes资源清单/" >kubernetes资源清单</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes资源定义清单中的apiVersion说明/" >kubernetes资源定义清单中的apiVersion说明</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes访问集群节点的资源/" >kubernetes访问集群节点的资源</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes资源指标metrics-server/" >kubernetes资源指标metrics-server</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes资源限制/" >kubernetes资源限制</a>
         </li>
     
     
@@ -4128,7 +4056,49 @@ serviceaccount:  pod中的容器要访问api的时候用的
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes高级调度方式/" >kubernetes高级调度方式</a>
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes资源定义清单中的apiVersion说明/" >kubernetes资源定义清单中的apiVersion说明</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes资源指标metrics-server/" >kubernetes资源指标metrics-server</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes资源清单/" >kubernetes资源清单</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes资源限制/" >kubernetes资源限制</a>
         </li>
     
     
@@ -4143,6 +4113,39 @@ serviceaccount:  pod中的容器要访问api的时候用的
     
         <li class="archive-post-item">
             <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes集群的外部地址和内部地址/" >kubernetes集群的外部地址和内部地址</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes高级调度方式/" >kubernetes高级调度方式</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2019 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/07</span><a class="archive-post-title" href= "/2019/09/07/kuberntes开发教程系列(2)  了解client-go是什么/" >kuberntes开发教程系列(2):了解client-go是什么</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/06</span><a class="archive-post-title" href= "/2019/09/06/kuberntes开发教程系列(一)认识kuberntes API/" >kuberntes开发教程系列(1):认识kuberntes API</a>
         </li>
     
     
@@ -4166,7 +4169,22 @@ serviceaccount:  pod中的容器要访问api的时候用的
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">10/15</span><a class="archive-post-title" href= "/2018/10/15/nginx中的负载均衡算法/" >nginx中的负载均衡算法</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">10/15</span><a class="archive-post-title" href= "/2018/10/15/nginx中缓存用法和优化/" >nginx中缓存用法和优化</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/15</span><a class="archive-post-title" href= "/2018/10/15/nginx使用open_file_cache提升系统性能/" >nginx使用open_file_cache提升系统性能</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/10</span><a class="archive-post-title" href= "/2018/10/10/nginx中的http反向代理流程及proxy模块/" >nginx中的http反向代理流程及proxy模块</a>
         </li>
     
     
@@ -4394,7 +4412,7 @@ serviceaccount:  pod中的容器要访问api的时候用的
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">11/07</span><a class="archive-post-title" href= "/2018/11/07/prometheus报警--------通过slack发送报警内容/" >prometheus报警--------通过slack发送报警内容</a>
+            <span class="archive-post-date">11/10</span><a class="archive-post-title" href= "/2018/11/10/kubernetes是如何创建api对象的/" >kubernetes是如何创建api对象的</a>
         </li>
     
     
@@ -4496,13 +4514,13 @@ serviceaccount:  pod中的容器要访问api的时候用的
     
         <span class="sidebar-tag-name" data-tags="RBAC"><span class="iconfont-archer">&#xe606;</span>RBAC</span>
     
-        <span class="sidebar-tag-name" data-tags="kbuernetes statefulset"><span class="iconfont-archer">&#xe606;</span>kbuernetes statefulset</span>
-    
         <span class="sidebar-tag-name" data-tags="HPA"><span class="iconfont-archer">&#xe606;</span>HPA</span>
     
-        <span class="sidebar-tag-name" data-tags="kubernetes service"><span class="iconfont-archer">&#xe606;</span>kubernetes service</span>
+        <span class="sidebar-tag-name" data-tags="kbuernetes statefulset"><span class="iconfont-archer">&#xe606;</span>kbuernetes statefulset</span>
     
         <span class="sidebar-tag-name" data-tags="ingress"><span class="iconfont-archer">&#xe606;</span>ingress</span>
+    
+        <span class="sidebar-tag-name" data-tags="kubernetes service"><span class="iconfont-archer">&#xe606;</span>kubernetes service</span>
     
         <span class="sidebar-tag-name" data-tags="prometheus"><span class="iconfont-archer">&#xe606;</span>prometheus</span>
     
@@ -4516,15 +4534,15 @@ serviceaccount:  pod中的容器要访问api的时候用的
     
         <span class="sidebar-tag-name" data-tags="ingress-nginx"><span class="iconfont-archer">&#xe606;</span>ingress-nginx</span>
     
-        <span class="sidebar-tag-name" data-tags="git"><span class="iconfont-archer">&#xe606;</span>git</span>
+        <span class="sidebar-tag-name" data-tags="Linux"><span class="iconfont-archer">&#xe606;</span>Linux</span>
     
         <span class="sidebar-tag-name" data-tags="kubernetes安装"><span class="iconfont-archer">&#xe606;</span>kubernetes安装</span>
+    
+        <span class="sidebar-tag-name" data-tags="git"><span class="iconfont-archer">&#xe606;</span>git</span>
     
         <span class="sidebar-tag-name" data-tags="travis"><span class="iconfont-archer">&#xe606;</span>travis</span>
     
         <span class="sidebar-tag-name" data-tags="gcr.io镜像"><span class="iconfont-archer">&#xe606;</span>gcr.io镜像</span>
-    
-        <span class="sidebar-tag-name" data-tags="Linux"><span class="iconfont-archer">&#xe606;</span>Linux</span>
     
         <span class="sidebar-tag-name" data-tags="kubernetes网络策略"><span class="iconfont-archer">&#xe606;</span>kubernetes网络策略</span>
     
