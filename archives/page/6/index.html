@@ -346,18 +346,15 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2019/09/02/kubernetes资源指标metrics-server/" >
+        <a class="abstract-title" href = "/2019/09/02/kubernetes访问集群节点的资源/" >
             
-                <span>kubernetes资源指标metrics-server</span>
+                <span>kubernetes访问集群节点的资源</span>
         </a>
         <div class="abstract-content">
-            资源指标: metrics-server
-自定义指标: prometheus 
-新一代架构
-核心指标流水线: 由kuberlet , metrics-server以及由API server提供的zpi组成, cpu累计使用率 , 内存实时使用率 , pod的资源占用率个容器的磁盘占用率
+            可以开一个本地代理
+1kubectl proxy --port=8080
+之后用curl即可访问
 
-监控流水线: 用于从系统收集各种指标并提供终端用户 存储系统和HPA 它们包涵核心指标和许多非核心指标 非核心指标不能被k8s所解析
-以后用户访问api群组 , 是通过kube-aggegator来访问 , 这个kube-aggegator同时聚合了由kubernetes自己提供的api群组和metri...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -368,9 +365,7 @@
             
             <div class= abstract-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "kubernetes">kubernetes</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "kubernetes资源">kubernetes资源</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "tips">tips</a>
     
 </div>
             
@@ -383,16 +378,18 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2019/09/02/kubernetes资源清单/" >
+        <a class="abstract-title" href = "/2019/09/02/kubernetes资源指标metrics-server/" >
             
-                <span>kubernetes资源清单</span>
+                <span>kubernetes资源指标metrics-server</span>
         </a>
         <div class="abstract-content">
-            查看帮助123kubectl explain pods   //如何定义pod的帮助kubectl explain pods.metadata  //查看其中matadata字段的定义方法kubectl explain pods.spec.containers  //查看spec下的containers字段的定义方法
-如何查看一个已经运行的pod的资源清单
-先查看pod 
+            资源指标: metrics-server
+自定义指标: prometheus 
+新一代架构
+核心指标流水线: 由kuberlet , metrics-server以及由API server提供的zpi组成, cpu累计使用率 , 内存实时使用率 , pod的资源占用率个容器的磁盘占用率
 
-12345678kubectl get podsNAME                            READY     STATUS      RESTARTS   AGEnginx-deploy-59c...
+监控流水线: 用于从系统收集各种指标并提供终端用户 存储系统和HPA 它们包涵核心指标和许多非核心指标 非核心指标不能被k8s所解析
+以后用户访问api群组 , 是通过kube-aggegator来访问 , 这个kube-aggegator同时聚合了由kubernetes自己提供的api群组和metri...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -3161,56 +3158,6 @@ serviceaccount:  pod中的容器要访问api的时候用的
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     <div class="total-and-search">
         <div class="total-archive">
         Total : 168
@@ -3297,17 +3244,17 @@ serviceaccount:  pod中的容器要访问api的时候用的
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">10/15</span><a class="archive-post-title" href= "/2020/10/15/Operator SDK开发简介/" >Operator SDK开发简介</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">10/15</span><a class="archive-post-title" href= "/2020/10/15/Operator介绍(1)/" >Operator介绍(1)</a>
         </li>
     
     
         <li class="archive-post-item">
             <span class="archive-post-date">10/15</span><a class="archive-post-title" href= "/2020/10/15/Operator介绍(2)---以etcd-operator为例/" >Operator介绍(2)---以etcd-operator为例</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">10/15</span><a class="archive-post-title" href= "/2020/10/15/Operator SDK开发简介/" >Operator SDK开发简介</a>
         </li>
     
     
@@ -3326,12 +3273,12 @@ serviceaccount:  pod中的容器要访问api的时候用的
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">03/01</span><a class="archive-post-title" href= "/2019/03/01/kubernetes DaemonSet是如何进行版本管理的/" >kubernetes DaemonSet是如何进行版本管理的</a>
+            <span class="archive-post-date">03/01</span><a class="archive-post-title" href= "/2019/03/01/kubernetes DaemonSet是如何保证pod只在一个节点上运行并且保证数量是1/" >kubernetes DaemonSet是如何保证pod只在一个节点上运行并且保证数量是1</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">03/01</span><a class="archive-post-title" href= "/2019/03/01/kubernetes DaemonSet是如何保证pod只在一个节点上运行并且保证数量是1/" >kubernetes DaemonSet是如何保证pod只在一个节点上运行并且保证数量是1</a>
+            <span class="archive-post-date">03/01</span><a class="archive-post-title" href= "/2019/03/01/kubernetes DaemonSet是如何进行版本管理的/" >kubernetes DaemonSet是如何进行版本管理的</a>
         </li>
     
     
@@ -3471,7 +3418,7 @@ serviceaccount:  pod中的容器要访问api的时候用的
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes HPA/" >kubernetes HPA</a>
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes RBAC/" >kubernetes RBAC</a>
         </li>
     
     
@@ -3499,7 +3446,7 @@ serviceaccount:  pod中的容器要访问api的时候用的
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes RBAC/" >kubernetes RBAC</a>
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes HPA/" >kubernetes HPA</a>
         </li>
     
     
@@ -3883,20 +3830,6 @@ serviceaccount:  pod中的容器要访问api的时候用的
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes中部署prometheus/" >kubernetes中部署prometheus</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes中资源的引用方式/" >kubernetes中资源的引用方式</a>
         </li>
     
@@ -3912,6 +3845,20 @@ serviceaccount:  pod中的容器要访问api的时候用的
     
         <li class="archive-post-item">
             <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes中部署一个服务用的简单模板/" >kubernetes中部署一个服务用的简单模板</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes中部署prometheus/" >kubernetes中部署prometheus</a>
         </li>
     
     
@@ -4018,17 +3965,17 @@ serviceaccount:  pod中的容器要访问api的时候用的
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">10/15</span><a class="archive-post-title" href= "/2018/10/15/nginx中upstream模块提供的变量(不含cache)/" >nginx中upstream模块提供的变量(不含cache)</a>
+            <span class="archive-post-date">10/15</span><a class="archive-post-title" href= "/2018/10/15/nginx中的负载均衡算法/" >nginx中的负载均衡算法</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">10/15</span><a class="archive-post-title" href= "/2018/10/15/nginx中缓存用法和优化/" >nginx中缓存用法和优化</a>
+            <span class="archive-post-date">10/15</span><a class="archive-post-title" href= "/2018/10/15/nginx使用open_file_cache提升系统性能/" >nginx使用open_file_cache提升系统性能</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">10/05</span><a class="archive-post-title" href= "/2018/10/05/nginx架构基础相关知识/" >nginx架构基础相关知识</a>
+            <span class="archive-post-date">10/10</span><a class="archive-post-title" href= "/2018/10/10/nginx中的http反向代理流程及proxy模块/" >nginx中的http反向代理流程及proxy模块</a>
         </li>
     
     
@@ -4075,7 +4022,7 @@ serviceaccount:  pod中的容器要访问api的时候用的
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes访问集群节点的资源/" >kubernetes访问集群节点的资源</a>
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes组件/" >kubernetes组件</a>
         </li>
     
     
@@ -4089,21 +4036,7 @@ serviceaccount:  pod中的容器要访问api的时候用的
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes组件/" >kubernetes组件</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> 2018 </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">09/28</span><a class="archive-post-title" href= "/2018/09/28/kubernetes调度pod策略/" >kubernetes调度pod策略</a>
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes资源清单/" >kubernetes资源清单</a>
         </li>
     
     
@@ -4131,6 +4064,20 @@ serviceaccount:  pod中的容器要访问api的时候用的
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes访问集群节点的资源/" >kubernetes访问集群节点的资源</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes资源指标metrics-server/" >kubernetes资源指标metrics-server</a>
         </li>
     
@@ -4145,7 +4092,7 @@ serviceaccount:  pod中的容器要访问api的时候用的
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes资源清单/" >kubernetes资源清单</a>
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes资源限制/" >kubernetes资源限制</a>
         </li>
     
     
@@ -4168,17 +4115,8 @@ serviceaccount:  pod中的容器要访问api的时候用的
         </li>
     
     
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
         <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes集群的外部地址和内部地址/" >kubernetes集群的外部地址和内部地址</a>
+            <span class="archive-post-date">09/28</span><a class="archive-post-title" href= "/2018/09/28/kubernetes调度pod策略/" >kubernetes调度pod策略</a>
         </li>
     
     
@@ -4201,8 +4139,27 @@ serviceaccount:  pod中的容器要访问api的时候用的
     
         </ul>
     
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes集群的外部地址和内部地址/" >kubernetes集群的外部地址和内部地址</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
     <div class="archive-year"> 2018 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/15</span><a class="archive-post-title" href= "/2018/10/15/nginx中upstream模块提供的变量(不含cache)/" >nginx中upstream模块提供的变量(不含cache)</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -4211,12 +4168,17 @@ serviceaccount:  pod中的容器要访问api的时候用的
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">10/15</span><a class="archive-post-title" href= "/2018/10/15/nginx使用open_file_cache提升系统性能/" >nginx使用open_file_cache提升系统性能</a>
+            <span class="archive-post-date">10/15</span><a class="archive-post-title" href= "/2018/10/15/nginx中缓存用法和优化/" >nginx中缓存用法和优化</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">10/10</span><a class="archive-post-title" href= "/2018/10/10/nginx中的http反向代理流程及proxy模块/" >nginx中的http反向代理流程及proxy模块</a>
+            <span class="archive-post-date">10/05</span><a class="archive-post-title" href= "/2018/10/05/nginx架构基础相关知识/" >nginx架构基础相关知识</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/08</span><a class="archive-post-title" href= "/2018/08/08/prometheus安装/" >prometheus安装</a>
         </li>
     
     
@@ -4231,20 +4193,6 @@ serviceaccount:  pod中的容器要访问api的时候用的
     
         <li class="archive-post-item">
             <span class="archive-post-date">03/11</span><a class="archive-post-title" href= "/2016/03/11/linux的五种IO模型/" >linux的五种IO模型</a>
-        </li>
-    
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/09/02/kubernetes资源限制/" >kubernetes资源限制</a>
         </li>
     
     
@@ -4277,12 +4225,12 @@ serviceaccount:  pod中的容器要访问api的时候用的
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">01/05</span><a class="archive-post-title" href= "/2022/01/05/如何解析caCert,caPrikey/" >如何解析caCert,caPrikey</a>
+            <span class="archive-post-date">01/05</span><a class="archive-post-title" href= "/2022/01/05/代码自动签发证书/" >代码自动签发证书</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">01/05</span><a class="archive-post-title" href= "/2022/01/05/代码自动签发证书/" >代码自动签发证书</a>
+            <span class="archive-post-date">01/05</span><a class="archive-post-title" href= "/2022/01/05/如何解析caCert,caPrikey/" >如何解析caCert,caPrikey</a>
         </li>
     
     
@@ -4458,22 +4406,12 @@ serviceaccount:  pod中的容器要访问api的时候用的
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">10/15</span><a class="archive-post-title" href= "/2018/10/15/nginx中的负载均衡算法/" >nginx中的负载均衡算法</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">10/12</span><a class="archive-post-title" href= "/2018/10/12/利用TravisCI同步gcr.io镜像到dockerhub/" >利用TravisCI同步gcr.io镜像到dockerhub</a>
         </li>
     
     
         <li class="archive-post-item">
             <span class="archive-post-date">09/25</span><a class="archive-post-title" href= "/2018/09/25/部署一个有证书的ingress-nginx/" >部署一个有证书的ingress-nginx</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">08/08</span><a class="archive-post-title" href= "/2018/08/08/prometheus安装/" >prometheus安装</a>
         </li>
     
     
@@ -4558,11 +4496,11 @@ serviceaccount:  pod中的容器要访问api的时候用的
     
         <span class="sidebar-tag-name" data-tags="configmap"><span class="iconfont-archer">&#xe606;</span>configmap</span>
     
-        <span class="sidebar-tag-name" data-tags="HPA"><span class="iconfont-archer">&#xe606;</span>HPA</span>
+        <span class="sidebar-tag-name" data-tags="RBAC"><span class="iconfont-archer">&#xe606;</span>RBAC</span>
     
         <span class="sidebar-tag-name" data-tags="kbuernetes statefulset"><span class="iconfont-archer">&#xe606;</span>kbuernetes statefulset</span>
     
-        <span class="sidebar-tag-name" data-tags="RBAC"><span class="iconfont-archer">&#xe606;</span>RBAC</span>
+        <span class="sidebar-tag-name" data-tags="HPA"><span class="iconfont-archer">&#xe606;</span>HPA</span>
     
         <span class="sidebar-tag-name" data-tags="kubernetes service"><span class="iconfont-archer">&#xe606;</span>kubernetes service</span>
     
@@ -4580,15 +4518,15 @@ serviceaccount:  pod中的容器要访问api的时候用的
     
         <span class="sidebar-tag-name" data-tags="ingress-nginx"><span class="iconfont-archer">&#xe606;</span>ingress-nginx</span>
     
-        <span class="sidebar-tag-name" data-tags="Linux"><span class="iconfont-archer">&#xe606;</span>Linux</span>
+        <span class="sidebar-tag-name" data-tags="git"><span class="iconfont-archer">&#xe606;</span>git</span>
     
         <span class="sidebar-tag-name" data-tags="kubernetes安装"><span class="iconfont-archer">&#xe606;</span>kubernetes安装</span>
-    
-        <span class="sidebar-tag-name" data-tags="git"><span class="iconfont-archer">&#xe606;</span>git</span>
     
         <span class="sidebar-tag-name" data-tags="travis"><span class="iconfont-archer">&#xe606;</span>travis</span>
     
         <span class="sidebar-tag-name" data-tags="gcr.io镜像"><span class="iconfont-archer">&#xe606;</span>gcr.io镜像</span>
+    
+        <span class="sidebar-tag-name" data-tags="Linux"><span class="iconfont-archer">&#xe606;</span>Linux</span>
     
         <span class="sidebar-tag-name" data-tags="kubernetes网络策略"><span class="iconfont-archer">&#xe606;</span>kubernetes网络策略</span>
     
