@@ -30,5 +30,5 @@ KUBELET_EXTRA_ARGS="--fail-swap-on=false"
 kubeadm init --kubernetes-version=v1.11.1 --pod-network-cidr=10.244.0.0/16 --ignore-preflight-errors Swap
 ```
 
-
+谢谢支持
 
