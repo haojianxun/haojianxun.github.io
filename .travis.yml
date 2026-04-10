@@ -1,0 +1,30 @@
+language: node_js
+node_js: stable
+
+# S: Build Lifecycle
+install:
+  - npm install
+
+
+before_script:
+  - npm install hexo-helper-qrcode --save
+  - npm install hexo-generator-feed --save
+
+script:
+  - hexo g
+
+after_script:
+  - cd ./public
+  - git init
+  - git config user.name "haojianxun"
+  - git config user.email "haojinaxun@gmail.com"
+  - git add .
+  - git commit -m "Update docs"
+  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master
+
+branches:
+  only:
+    - bolg-source
+env:
+ global:
+   - GH_REF: github.com/haojianxun/haojianxun.github.io.git
